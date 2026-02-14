@@ -241,7 +241,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         color: accentColor,
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
-      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 sm:px-12 sm:py-5 text-xs sm:text-base md:text-lg font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
+      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 md:px-12 md:py-5 text-xs md:text-base lg:text-lg font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
@@ -266,7 +266,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       rel="noopener noreferrer"
       animate={{ rotateY: spinCount }}
       transition={{ duration: 1.5, ease: "linear" }}
-      className="group flex items-center justify-center border-2 p-2 sm:p-4 transition-all duration-300"
+      className="group flex items-center justify-center border-2 p-2 md:p-4 transition-all duration-300"
       style={{ 
         transformStyle: "preserve-3d",
         borderColor: accentColor,
@@ -279,7 +279,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       }}
     >
       <svg
-        className="h-6 w-6 sm:h-8 sm:w-8 transition-colors duration-300"
+        className="h-6 w-6 md:h-8 md:w-8 transition-colors duration-300"
         viewBox="0 0 24 24"
         style={{ 
           transformStyle: "preserve-3d", 
@@ -302,28 +302,28 @@ export default function Hero() {
       <AnimationProvider>
         <section
           id="top"
-          className="relative min-h-screen overflow-hidden px-8 md:px-14 xl:px-24 2xl:px-32 pt-8 lg:pt-10 pb-16 bg-[#050509] text-zinc-100"
+          className="relative min-h-screen overflow-hidden px-8 md:px-14 lg:px-24 xl:px-32 2xl:px-40 pt-8 md:pt-10 lg:pt-14 xl:pt-18 pb-16 bg-[#050509] text-zinc-100"
         >
           {/* Main Content */}
-          <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10">
+          <div className="relative max-w-7xl lg:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 md:mt-12 lg:mt-16 xl:mt-20 z-10">
             <div className="space-y-4 w-full">
               <h1 className="font-black leading-none tracking-tight">
-                <span className="block text-8xl sm:text-[8.5rem] lg:text-[10.5rem] xl:text-[14.5rem] 2xl:text-[16rem]">
+                <span className="block text-8xl md:text-[8.5rem] lg:text-[10.5rem] xl:text-[14.5rem] 2xl:text-[18rem]">
                   <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
                 </span>
 
-                <span className="block sm:inline-flex items-center gap-4 mt-1 sm:ml-3">
+                <span className="block md:inline-flex items-center gap-4 mt-1 md:ml-3">
                   <PalenciaBox />
                 </span>
 
-                <span className="block mt-1 sm:ml-3 text-3xl sm:text-[3.3rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[6rem]">
+                <span className="block mt-1 md:ml-3 text-3xl md:text-[3.3rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[7rem]">
                   <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
                 </span>
               </h1>
 
               <DynamicDivider />
 
-              <p className="uppercase tracking-[0.2em] ml-3 mt-4 text-[15px] sm:text-[16px] xl:text-[23px] font-bold text-zinc-400">
+              <p className="uppercase tracking-[0.2em] ml-3 mt-4 text-[15px] md:text-[16px] lg:text-[20px] xl:text-[23px] 2xl:text-[28px] font-bold text-zinc-400">
                 Estudiante de Diseño y Desarrollo de Videojuegos
               </p>
             </div>
@@ -331,7 +331,7 @@ export default function Hero() {
 
           {/* 3D Canvas Window - Positioned con transform para drag suave */}
           <div
-            className="fixed bottom-32 right-8 md:right-14 xl:right-24 2xl:right-32 z-40"
+            className="fixed bottom-32 right-8 md:right-14 lg:right-24 xl:right-32 2xl:right-40 z-40"
             style={{ willChange: "transform" }}
           >
             <motion.div
@@ -348,12 +348,12 @@ export default function Hero() {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.6, ease: EASE_EXPO }}
-            className="fixed left-0 right-0 bottom-0 px-8 md:px-14 xl:px-24 2xl:px-32 pb-15 pt-4 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
+            className="fixed left-0 right-0 bottom-0 px-8 md:px-14 lg:px-24 xl:px-32 2xl:px-40 pb-15 pt-4 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
           >
-            <div className="max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center justify-between gap-4">
+            <div className="max-w-7xl lg:max-w-400 2xl:max-w-440 mx-auto flex items-center justify-between gap-4">
               <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
 
-              <div className="flex items-center gap-3 sm:gap-6">
+              <div className="flex items-center gap-3 md:gap-6">
                 <SocialButton href="https://www.linkedin.com/in/tu-usuario">
                   <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
                 </SocialButton>
@@ -375,7 +375,7 @@ function PalenciaBox() {
 
   return (
     <span 
-      className="px-4 py-2 text-3xl sm:text-[3.3rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[6rem] font-black"
+      className="px-4 py-2 text-3xl md:text-[3.3rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[6rem] font-black"
       style={{
         backgroundColor: accentColor,
         color: "#050509",
