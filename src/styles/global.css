@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Escalar toda la web al 125% para que al 80% de zoom se vea como al 100% original */
+html {
+  zoom: 1.25;
+}
+
 /* Grid editorial animado, muy sutil y fluido */
 .grid-bg {
   position: fixed;
