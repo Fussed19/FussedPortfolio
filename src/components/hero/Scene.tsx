@@ -5,6 +5,7 @@ import ModelViewer from "./ModelViewer";
 interface SceneProps {
   modelIndex: number;
   accentColor: string;
+  basePath?: string;
 }
 
 interface MeshStats {
@@ -48,7 +49,7 @@ function RendererResize() {
   return null;
 }
 
-export default function Scene({ modelIndex, accentColor }: SceneProps){
+export default function Scene({ modelIndex, accentColor, basePath = "" }: SceneProps){
   const [zoom, setZoom] = useState(3);
   const [meshStats, setMeshStats] = useState<MeshStats>({ vertices: 0, polygons: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
@@ -87,7 +88,7 @@ export default function Scene({ modelIndex, accentColor }: SceneProps){
         <color attach="background" args={["#000000"]} />
         <RendererResize />
         <CameraController zoom={zoom} />
-        <ModelViewer modelIndex={modelIndex} accentColor={accentColor} onStatsUpdate={setMeshStats} />
+        <ModelViewer modelIndex={modelIndex} accentColor={accentColor} onStatsUpdate={setMeshStats} basePath={basePath} />
       </Canvas>
 
       {/* Stats Display - FUERA del Canvas */}

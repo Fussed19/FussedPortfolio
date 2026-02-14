@@ -402,6 +402,6 @@ function HeroCanvasWindowWithColor() {
   const { setAccentColor } = useAccentColor();
   
   return (
-    <HeroCanvasWindow onColorChange={setAccentColor} />
+    <HeroCanvasWindow onColorChange={setAccentColor} basePath="/FussedPortfolio" />
   );
 }

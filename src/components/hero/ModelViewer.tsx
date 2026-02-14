@@ -7,6 +7,7 @@ interface ModelViewerProps {
   modelIndex: number;
   accentColor: string;
   onStatsUpdate?: (stats: { vertices: number; polygons: number }) => void;
+  basePath?: string;
 }
 
 function GLBModel({ url, accentColor, scale, position, onStatsUpdate }: { url: string; accentColor: string; scale: number; position: [number, number, number]; onStatsUpdate?: (stats: { vertices: number; polygons: number }) => void }) {
@@ -54,7 +55,7 @@ function GLBModel({ url, accentColor, scale, position, onStatsUpdate }: { url: s
   return <group ref={groupRef}><primitive object={clonedScene} /></group>;
 }
 
-export default function ModelViewer({ modelIndex, accentColor, onStatsUpdate }: ModelViewerProps) {
+export default function ModelViewer({ modelIndex, accentColor, onStatsUpdate, basePath = "" }: ModelViewerProps) {
 
   const ref = useRef<THREE.Group>(null);
 
@@ -67,10 +68,10 @@ export default function ModelViewer({ modelIndex, accentColor, onStatsUpdate }: 
 
   // Array con las rutas a tus archivos .glb y sus escalas
   const models = [
-    { path: "/models/StandfordDragon.glb", scale: 0.07, position: [0, 0, 0] as [number, number, number] },
-    { path: "/models/StandfordHappyBuddha.glb", scale: 3.5, position: [0, 0.0, 0] as [number, number, number] },
-    { path: "/models/StandfordBunny.glb", scale: 0.006, position: [0, 0.3 , 0] as [number, number, number] },
-    { path: "/models/UtahTeapot.glb", scale: 0.027, position: [0, -1.2, 0] as [number, number, number] },
+    { path: `${basePath}/models/StandfordDragon.glb`, scale: 0.07, position: [0, 0, 0] as [number, number, number] },
+    { path: `${basePath}/models/StandfordHappyBuddha.glb`, scale: 3.5, position: [0, 0.0, 0] as [number, number, number] },
+    { path: `${basePath}/models/StandfordBunny.glb`, scale: 0.006, position: [0, 0.3 , 0] as [number, number, number] },
+    { path: `${basePath}/models/UtahTeapot.glb`, scale: 0.027, position: [0, -1.2, 0] as [number, number, number] },
   ];
 
   const currentModel = models[modelIndex % models.length];

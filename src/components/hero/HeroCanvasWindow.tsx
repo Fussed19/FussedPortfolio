@@ -5,9 +5,10 @@ import { MODEL_COLORS, type ModelColorKey } from "../../utils/colors";
 
 interface HeroCanvasWindowProps {
   onColorChange?: (color: string) => void;
+  basePath?: string;
 }
 
-export default function HeroCanvasWindow({ onColorChange }: HeroCanvasWindowProps) {
+export default function HeroCanvasWindow({ onColorChange, basePath = "" }: HeroCanvasWindowProps) {
   const [modelIndex, setModelIndex] = useState(0);
 
   const handleModelChange = (direction: 'prev' | 'next') => {
@@ -30,7 +31,7 @@ export default function HeroCanvasWindow({ onColorChange }: HeroCanvasWindowProp
 
   return (
     <WindowFrame onModelChange={handleModelChange} modelIndex={modelIndex}>
-      <Scene modelIndex={modelIndex} accentColor={currentColor} />
+      <Scene modelIndex={modelIndex} accentColor={currentColor} basePath={basePath} />
     </WindowFrame>
   );
 }
