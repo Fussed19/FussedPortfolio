@@ -40,7 +40,7 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
       setSize(getSizeByBreakpoint(vw));
 
       const randomX = vw * 0.12 + (Math.random() + (70-35));
-      const randomY = vh * 0.3 + (Math.random() + (100-50));
+      const randomY = vh * 0.3;
 
       setPosition({ x: -randomX, y: -randomY });
     };

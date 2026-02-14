@@ -241,7 +241,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         color: accentColor,
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
-      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 md:px-10 md:py-5 lg:px-10 lg:py-4 text-xs md:text-sm lg:text-sm font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
+      className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black px-5 py-2 md:px-8 md:py-3 lg:px-8 lg:py-3 text-[10px] md:text-xs lg:text-xs font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
@@ -309,14 +309,14 @@ function HeroContent() {
         <div className="space-y-4 w-full pl-0">
           <h1 className="font-black tracking-tight pl-0">
             {/* DIEGO - Primer nombre */}
-            <span className="block leading-tight text-4xl sm:text-5xl lg:text-4xl xl:text-[80px] 2xl:text-[140px]">
+            <span className="block leading-tight text-3xl sm:text-4xl lg:text-3xl xl:text-[64px] 2xl:text-[140px]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA - En caja de color */}
-            <span className="block sm:inline-flex items-center gap-4 mt-1 sm:ml-0">
+            <span className="block sm:inline-flex items-center gap-3 mt-0 sm:ml-0">
               <span 
-                className="px-4 py-2 sm:px-4 sm:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 text-xl sm:text-2xl lg:text-lg xl:text-[24px] 2xl:text-[48px] font-black leading-tight"
+                className="px-3 py-1 sm:px-4 sm:py-2 lg:px-3 lg:py-1 xl:px-3 xl:py-1 2xl:px-6 2xl:py-3 text-lg sm:text-xl lg:text-sm xl:text-[18px] 2xl:text-[48px] font-black leading-tight"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -328,19 +328,19 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ - Segundo apellido */}
-            <span className="block mt-1 leading-tight text-xl sm:text-2xl lg:text-lg xl:text-[24px] 2xl:text-[48px]">
+            <span className="block mt-0 leading-tight text-lg sm:text-xl lg:text-sm xl:text-[18px] 2xl:text-[48px]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
           </h1>
 
           {/* DIVIDER - Línea horizontal */}
           <div 
-            className="h-1.5 mt-8 w-70 sm:w-70 lg:w-70 xl:w-125 2xl:w-125 transition-colors duration-300"
+            className="h-1 mt-4 w-60 sm:w-70 lg:w-60 xl:w-100 2xl:w-125 transition-colors duration-300"
             style={{ backgroundColor: accentColor }}
           />
 
           {/* DESCRIPTION - Subtítulo */}
-          <p className="uppercase tracking-[0.2em] mt-4 font-bold text-zinc-400 text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[10px] 2xl:text-[15px]">
+          <p className="uppercase tracking-[0.2em] mt-3 font-bold text-zinc-400 text-[9px] sm:text-[10px] lg:text-[9px] xl:text-[9px] 2xl:text-[15px]">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
