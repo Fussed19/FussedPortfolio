@@ -241,7 +241,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         color: accentColor,
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
-      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 md:px-12 md:py-5 text-xs md:text-base lg:text-lg font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
+      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 md:px-10 md:py-5 lg:px-12 lg:py-6 text-xs md:text-sm lg:text-base font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
@@ -296,105 +296,102 @@ function SocialButton({ href, children }: SocialButtonProps) {
    HERO SECTION
 ========================= */
 
+function HeroContent() {
+  const { accentColor } = useAccentColor();
+  
+  return (
+    <section
+      id="top"
+      className="relative min-h-screen overflow-hidden px-8 md:px-14 xl:px-24 2xl:px-32 pt-8 lg:pt-10 pb-16 bg-[#050509] text-zinc-100"
+    >
+      {/* Main Content */}
+      <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10 pl-0">
+        <div className="space-y-4 w-full pl-0">
+          <h1 className="font-black tracking-tight pl-0">
+            {/* DIEGO - Primer nombre */}
+            <span className="block leading-tight text-4xl sm:text-5xl lg:text-6xl xl:text-[120px] 2xl:text-[140px]">
+              <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
+            </span>
+
+            {/* PALENCIA - En caja de color */}
+            <span className="block sm:inline-flex items-center gap-4 mt-1 sm:ml-0">
+              <span 
+                className="px-4 py-2 sm:px-4 sm:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 text-xl sm:text-2xl lg:text-2xl xl:text-[38px] 2xl:text-[48px] font-black leading-tight"
+                style={{
+                  backgroundColor: accentColor,
+                  color: "#050509",
+                  transition: "all 0.3s ease"
+                }}
+              >
+                <AnimatedWord text="PALENCIA" wordStartIndex={WORD_POSITIONS.PALENCIA} />
+              </span>
+            </span>
+
+            {/* MARTINEZ - Segundo apellido */}
+            <span className="block mt-1 leading-tight text-xl sm:text-2xl lg:text-2xl xl:text-[38px] 2xl:text-[48px]">
+              <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
+            </span>
+          </h1>
+
+          {/* DIVIDER - Línea horizontal */}
+          <div 
+            className="h-1.5 mt-8 w-70 sm:w-70 lg:w-70 xl:w-125 2xl:w-125 transition-colors duration-300"
+            style={{ backgroundColor: accentColor }}
+          />
+
+          {/* DESCRIPTION - Subtítulo */}
+          <p className="uppercase tracking-[0.2em] mt-4 font-bold text-zinc-400 text-[10px] sm:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[15px]">
+            Estudiante de Diseño y Desarrollo de Videojuegos
+          </p>
+        </div>
+      </div>
+
+      {/* 3D Canvas Window - Positioned con transform para drag suave */}
+      <div
+        className="fixed bottom-40 right-8 md:right-14 xl:right-24 2xl:right-32 z-40"
+        style={{ willChange: "transform" }}
+      >
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: EASE_EXPO }}
+        >
+          <HeroCanvasWindowWithColor />
+        </motion.div>
+      </div>
+
+      {/* Bottom Bar */}
+      <motion.div
+        initial={{ y: 50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.6, ease: EASE_EXPO }}
+        className="fixed left-0 right-0 bottom-0 pt-8 pb-8 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
+      >
+        <div className="px-8 md:px-14 xl:px-24 2xl:px-32 flex items-center justify-between gap-4">
+          <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
+
+          <div className="flex items-center gap-3 sm:gap-6">
+            <SocialButton href="https://www.linkedin.com/in/tu-usuario">
+              <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
+            </SocialButton>
+
+            <SocialButton href="https://github.com/Fussed19">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.78-1.34-1.78-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.05.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.21.7.83.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
+            </SocialButton>
+          </div>
+        </div>
+      </motion.div>
+    </section>
+  );
+}
+
 export default function Hero() {
   return (
     <ColorProvider>
       <AnimationProvider>
-        <section
-          id="top"
-          className="relative min-h-screen overflow-hidden px-8 md:px-14 xl:px-24 2xl:px-32 pt-8 lg:pt-10 pb-16 bg-[#050509] text-zinc-100"
-        >
-          {/* Main Content */}
-          <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10">
-            <div className="space-y-4 w-full">
-              <h1 className="font-black leading-none tracking-tight">
-                <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
-                  <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
-                </span>
-
-                <span className="block sm:inline-flex items-center gap-4 mt-1 sm:ml-3">
-                  <PalenciaBox />
-                </span>
-
-                <span className="block mt-1 sm:ml-3 text-2xl sm:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
-                  <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
-                </span>
-              </h1>
-
-              <DynamicDivider />
-
-              <p className="uppercase tracking-[0.2em] ml-3 mt-4 text-[11px] sm:text-[13px] xl:text-[16px] font-bold text-zinc-400">
-                Estudiante de Diseño y Desarrollo de Videojuegos
-              </p>
-            </div>
-          </div>
-
-          {/* 3D Canvas Window - Positioned con transform para drag suave */}
-          <div
-            className="fixed bottom-32 right-8 md:right-14 xl:right-24 2xl:right-32 z-40"
-            style={{ willChange: "transform" }}
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 50 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.8, ease: EASE_EXPO }}
-            >
-              <HeroCanvasWindowWithColor />
-            </motion.div>
-          </div>
-
-          {/* Bottom Bar */}
-          <motion.div
-            initial={{ y: 50, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 0.3, duration: 0.6, ease: EASE_EXPO }}
-            className="fixed left-0 right-0 bottom-0 px-8 md:px-14 xl:px-24 2xl:px-32 pb-15 pt-4 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
-          >
-            <div className="max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center justify-between gap-4">
-              <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
-
-              <div className="flex items-center gap-3 sm:gap-6">
-                <SocialButton href="https://www.linkedin.com/in/tu-usuario">
-                  <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
-                </SocialButton>
-
-                <SocialButton href="https://github.com/Fussed19">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.78-1.34-1.78-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.05.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.21.7.83.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
-                </SocialButton>
-              </div>
-            </div>
-          </motion.div>
-        </section>
+        <HeroContent />
       </AnimationProvider>
     </ColorProvider>
-  );
-}
-
-function PalenciaBox() {
-  const { accentColor } = useAccentColor();
-
-  return (
-    <span 
-      className="px-4 py-2 text-2xl sm:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-black"
-      style={{
-        backgroundColor: accentColor,
-        color: "#050509",
-        transition: "all 0.3s ease"
-      }}
-    >
-      <AnimatedWord text="PALENCIA" wordStartIndex={WORD_POSITIONS.PALENCIA} />
-    </span>
-  );
-}
-
-function DynamicDivider() {
-  const { accentColor } = useAccentColor();
-
-  return (
-    <div 
-      className="h-1.5 w-70 xl:w-125 ml-3 mt-8 transition-colors duration-300"
-      style={{ backgroundColor: accentColor }}
-    />
   );
 }
 
