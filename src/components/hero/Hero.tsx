@@ -309,14 +309,14 @@ function HeroContent() {
         <div className="space-y-4 w-full pl-0">
           <h1 className="font-black tracking-tight pl-0">
             {/* DIEGO - Primer nombre */}
-            <span className="block leading-tight text-4xl sm:text-5xl lg:text-6xl xl:text-[120px] 2xl:text-[140px]">
+            <span className="block leading-tight text-4xl sm:text-5xl lg:text-5xl xl:text-[96px] 2xl:text-[140px]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA - En caja de color */}
             <span className="block sm:inline-flex items-center gap-4 mt-1 sm:ml-0">
               <span 
-                className="px-4 py-2 sm:px-4 sm:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 text-xl sm:text-2xl lg:text-2xl xl:text-[38px] 2xl:text-[48px] font-black leading-tight"
+                className="px-4 py-2 sm:px-4 sm:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 text-xl sm:text-2xl lg:text-xl xl:text-[30px] 2xl:text-[48px] font-black leading-tight"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -328,7 +328,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ - Segundo apellido */}
-            <span className="block mt-1 leading-tight text-xl sm:text-2xl lg:text-2xl xl:text-[38px] 2xl:text-[48px]">
+            <span className="block mt-1 leading-tight text-xl sm:text-2xl lg:text-xl xl:text-[30px] 2xl:text-[48px]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
           </h1>
@@ -340,7 +340,7 @@ function HeroContent() {
           />
 
           {/* DESCRIPTION - Subtítulo */}
-          <p className="uppercase tracking-[0.2em] mt-4 font-bold text-zinc-400 text-[10px] sm:text-[11px] lg:text-[12px] xl:text-[13px] 2xl:text-[15px]">
+          <p className="uppercase tracking-[0.2em] mt-4 font-bold text-zinc-400 text-[10px] sm:text-[11px] lg:text-[11px] xl:text-[11px] 2xl:text-[15px]">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
