@@ -22,10 +22,11 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
   const currentColor = MODEL_COLORS[colorKey];
 
   const getSizeByBreakpoint = (width: number) => {
-    if (width < 640) return { width: 280, height: 280 };
-    if (width < 768) return { width: 350, height: 350 };
-    if (width < 1024) return { width: 480, height: 480 };
-    if (width < 1280) return { width: 550, height: 550 };
+    if (width < 640) return { width: 180, height: 180 };
+    if (width < 768) return { width: 250, height: 250 };
+    if (width < 1024) return { width: 380, height: 380 };
+    if (width < 1280) return { width: 450, height: 450 };
+    if (width < 1920) return { width: 550, height: 550 };
     return { width: 700, height: 700 };
   };
 

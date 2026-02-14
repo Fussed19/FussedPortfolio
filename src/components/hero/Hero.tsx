@@ -308,7 +308,7 @@ export default function Hero() {
           <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10">
             <div className="space-y-4 w-full">
               <h1 className="font-black leading-none tracking-tight">
-                <span className="block text-8xl sm:text-[8.5rem] lg:text-[10.5rem] xl:text-[14.5rem] 2xl:text-[16rem]">
+                <span className="block text-5xl sm:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl">
                   <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
                 </span>
 
@@ -316,14 +316,14 @@ export default function Hero() {
                   <PalenciaBox />
                 </span>
 
-                <span className="block mt-1 sm:ml-3 text-3xl sm:text-[3.3rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[6rem]">
+                <span className="block mt-1 sm:ml-3 text-2xl sm:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl">
                   <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
                 </span>
               </h1>
 
               <DynamicDivider />
 
-              <p className="uppercase tracking-[0.2em] ml-3 mt-4 text-[15px] sm:text-[16px] xl:text-[23px] font-bold text-zinc-400">
+              <p className="uppercase tracking-[0.2em] ml-3 mt-4 text-[11px] sm:text-[13px] xl:text-[16px] font-bold text-zinc-400">
                 Estudiante de Diseño y Desarrollo de Videojuegos
               </p>
             </div>
@@ -375,7 +375,7 @@ function PalenciaBox() {
 
   return (
     <span 
-      className="px-4 py-2 text-3xl sm:text-[3.3rem] lg:text-[4rem] xl:text-[4.5rem] 2xl:text-[6rem] font-black"
+      className="px-4 py-2 text-2xl sm:text-2xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-black"
       style={{
         backgroundColor: accentColor,
         color: "#050509",
