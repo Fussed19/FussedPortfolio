@@ -1,11 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
+  content: [
+    './src/**/*.{astro,html,js,jsx,ts,tsx}',
+    './src/layouts/**/*.{astro,html,js,jsx,ts,tsx}',
+    './src/components/**/*.{astro,html,js,jsx,ts,tsx}',
+  ],
   theme: {
     extend: {
       maxWidth: {
-        '400': '400rem',
-        '440': '440rem',
+        '400': '400px',
+        '440': '440px',
       },
       spacing: {
         '15': '3.75rem',
