@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState, useRef, createContext, useContext } from "react";
 import type { ReactNode } from "react";
+import HeroCanvasWindow from "../hero/HeroCanvasWindow";
 
 /* =========================
    CONSTANTES Y TIPOS
@@ -21,11 +22,11 @@ const WORD_POSITIONS = {
 } as const;
 
 const EASE_EXPO = [0.22, 1, 0.36, 1] as const;
-const COLOR_GREEN = "#4ade80";
 
 interface AnimationContextType {
   glitchLetterIndex: number | null;
   spinCount: number;
+  accentColor: string;
 }
 
 /* =========================
@@ -34,11 +35,13 @@ interface AnimationContextType {
 
 const AnimationContext = createContext<AnimationContextType | null>(null);
 
-function AnimationProvider({ children }: { children: ReactNode }) {
+function AnimationProvider({ children, accentColor }: { children: ReactNode; accentColor: string }) {
   const [glitchLetterIndex, setGlitchLetterIndex] = useState<number | null>(null);
   const [spinCount, setSpinCount] = useState(0);
   const glitchInitRef = useRef(false);
   const spinInitRef = useRef(false);
+
+  console.log('🎯 AnimationProvider actualizado con accentColor:', accentColor);
 
   // Glitch animation
   useEffect(() => {
@@ -70,7 +73,7 @@ function AnimationProvider({ children }: { children: ReactNode }) {
   }, []);
 
   return (
-    <AnimationContext.Provider value={{ glitchLetterIndex, spinCount }}>
+    <AnimationContext.Provider value={{ glitchLetterIndex, spinCount, accentColor }}>
       {children}
     </AnimationContext.Provider>
   );
@@ -89,27 +92,36 @@ function useAnimation() {
 interface GlitchOverlayProps {
   letter: string;
   isActive: boolean;
+  accentColor: string;
 }
 
-function GlitchOverlay({ letter, isActive }: GlitchOverlayProps) {
-  const overlays = [
-    { color: "text-green-400", offsetX: "left-[2px]", offsetY: "top-[-2px]" },
-    { color: "text-lime-300", offsetX: "left-[-2px]", offsetY: "top-[2px]", delay: 0.03 },
-    { color: "text-emerald-500", offsetX: "left-[-3px]", offsetY: "top-[-3px]", delay: 0.06, blur: true },
-  ];
-
+function GlitchOverlay({ letter, isActive, accentColor }: GlitchOverlayProps) {
   return (
     <>
-      {overlays.map((overlay, i) => (
-        <motion.span
-          key={i}
-          animate={{ opacity: isActive ? [0.3, 0.8, 0.3] : 0.3 }}
-          transition={{ duration: 0.15, delay: overlay.delay || 0 }}
-          className={`absolute ${overlay.offsetX} ${overlay.offsetY} ${overlay.color} pointer-events-none font-black select-none ${overlay.blur ? "blur-[0.5px]" : ""}`}
-        >
-          {letter}
-        </motion.span>
-      ))}
+      <motion.span
+        animate={{ opacity: isActive ? [0.3, 0.8, 0.3] : 0.3 }}
+        transition={{ duration: 0.15, delay: 0 }}
+        className="absolute left-[2px] top-[-2px] pointer-events-none font-black select-none"
+        style={{ color: accentColor }}
+      >
+        {letter}
+      </motion.span>
+      <motion.span
+        animate={{ opacity: isActive ? [0.3, 0.8, 0.3] : 0.3 }}
+        transition={{ duration: 0.15, delay: 0.03 }}
+        className="absolute left-[-2px] top-[2px] pointer-events-none font-black select-none"
+        style={{ color: accentColor }}
+      >
+        {letter}
+      </motion.span>
+      <motion.span
+        animate={{ opacity: isActive ? [0.3, 0.8, 0.3] : 0.3 }}
+        transition={{ duration: 0.15, delay: 0.06 }}
+        className="absolute left-[-3px] top-[-3px] pointer-events-none font-black select-none blur-[0.5px]"
+        style={{ color: accentColor }}
+      >
+        {letter}
+      </motion.span>
     </>
   );
 }
@@ -126,7 +138,7 @@ interface AnimatedWordProps {
 function AnimatedWord({ text, wordStartIndex }: AnimatedWordProps) {
   const letters = text.split("");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
-  const { glitchLetterIndex } = useAnimation();
+  const { glitchLetterIndex, accentColor } = useAnimation();
   const [glitchIndex, setGlitchIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -176,7 +188,7 @@ function AnimatedWord({ text, wordStartIndex }: AnimatedWordProps) {
               transition={{ duration: 0.15 }}
               className="relative inline-block"
             >
-              {(isGlitch || isHovered) && <GlitchOverlay letter={letter} isActive={isGlitch || isHovered} />}
+              {(isGlitch || isHovered) && <GlitchOverlay letter={letter} isActive={isGlitch || isHovered} accentColor={accentColor} />}
               {letter === " " ? "\u00A0" : letter}
             </motion.span>
           </motion.span>
@@ -196,6 +208,8 @@ interface AnimatedButtonProps {
 }
 
 function AnimatedButton({ children, href }: AnimatedButtonProps) {
+  const { accentColor } = useAnimation();
+
   return (
     <motion.a
       href={href}
@@ -209,9 +223,9 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         y: -6,
         scale: 1.15,
         backgroundColor: "#000",
-        borderColor: COLOR_GREEN,
-        color: COLOR_GREEN,
-        boxShadow: `6px 6px 0px ${COLOR_GREEN}`
+        borderColor: accentColor,
+        color: accentColor,
+        boxShadow: `6px 6px 0px ${accentColor}`
       }}
       className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 sm:px-12 sm:py-5 text-xs sm:text-base md:text-lg font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
       style={{ transformStyle: "preserve-3d" }}
@@ -227,7 +241,7 @@ interface SocialButtonProps {
 }
 
 function SocialButton({ href, children }: SocialButtonProps) {
-  const { spinCount } = useAnimation();
+  const { spinCount, accentColor } = useAnimation();
 
   return (
     <motion.a
@@ -236,15 +250,15 @@ function SocialButton({ href, children }: SocialButtonProps) {
       rel="noopener noreferrer"
       animate={{ rotateY: spinCount }}
       transition={{ duration: 1.5, ease: "linear" }}
-      className="group flex items-center justify-center border-2 border-zinc-100 p-2 sm:p-4 hover:border-green-400 transition-all duration-300"
+      className="group flex items-center justify-center border-2 border-zinc-100 p-2 sm:p-4 transition-all duration-300"
       style={{ transformStyle: "preserve-3d" }}
       whileHover={{
-        borderColor: COLOR_GREEN,
+        borderColor: accentColor,
         scale: 1.0
       }}
     >
       <svg
-        className="h-6 w-6 sm:h-8 sm:w-8 fill-zinc-100 group-hover:fill-green-400 transition-colors duration-300"
+        className="h-6 w-6 sm:h-8 sm:w-8 fill-zinc-100 transition-colors duration-300"
         viewBox="0 0 24 24"
         style={{ transformStyle: "preserve-3d" }}
       >
@@ -258,9 +272,19 @@ function SocialButton({ href, children }: SocialButtonProps) {
    HERO SECTION
 ========================= */
 
-export default function Hero() {
+interface HeroProps {
+  accentColor?: string;
+}
+
+export default function Hero({ accentColor = "#4ade80" }: HeroProps) {
+  const [dynamicAccentColor, setDynamicAccentColor] = useState(accentColor);
+
+  const handleColorChange = (newColor: string) => {
+    setDynamicAccentColor(newColor);
+  };
+
   return (
-    <AnimationProvider>
+    <AnimationProvider accentColor={dynamicAccentColor}>
       <section
         id="top"
         className="relative min-h-screen overflow-hidden px-8 md:px-14 xl:px-24 2xl:px-32 pt-8 lg:pt-10 pb-16 bg-[#050509] text-zinc-100"
@@ -291,6 +315,15 @@ export default function Hero() {
             </p>
           </div>
         </div>
+
+        {/* 3D Canvas Window */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: 50 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.8, ease: EASE_EXPO }}
+        >
+          <HeroCanvasWindow onColorChange={handleColorChange} />
+        </motion.div>
 
         {/* Bottom Bar */}
         <motion.div
