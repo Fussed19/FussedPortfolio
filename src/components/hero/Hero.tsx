@@ -400,8 +400,9 @@ function DynamicDivider() {
 
 function HeroCanvasWindowWithColor() {
   const { setAccentColor } = useAccentColor();
+  const basePath = import.meta.env.BASE_URL || '/';
   
   return (
-    <HeroCanvasWindow onColorChange={setAccentColor} basePath="/FussedPortfolio" />
+    <HeroCanvasWindow onColorChange={setAccentColor} basePath={basePath} />
   );
 }
