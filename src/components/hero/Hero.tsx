@@ -241,7 +241,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         color: accentColor,
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
-      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 md:px-10 md:py-5 lg:px-12 lg:py-6 text-xs md:text-sm lg:text-base font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
+      className="inline-flex items-center justify-center gap-3 border-2 border-zinc-100 bg-zinc-100 text-black px-6 py-3 md:px-10 md:py-5 lg:px-10 lg:py-4 text-xs md:text-sm lg:text-sm font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
@@ -305,18 +305,18 @@ function HeroContent() {
       className="relative min-h-screen overflow-hidden px-8 md:px-14 xl:px-24 2xl:px-32 pt-8 lg:pt-10 pb-16 bg-[#050509] text-zinc-100"
     >
       {/* Main Content */}
-      <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10 pl-0">
+      <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10 pl-0 ml-0">
         <div className="space-y-4 w-full pl-0">
           <h1 className="font-black tracking-tight pl-0">
             {/* DIEGO - Primer nombre */}
-            <span className="block leading-tight text-4xl sm:text-5xl lg:text-5xl xl:text-[96px] 2xl:text-[140px]">
+            <span className="block leading-tight text-4xl sm:text-5xl lg:text-4xl xl:text-[80px] 2xl:text-[140px]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA - En caja de color */}
             <span className="block sm:inline-flex items-center gap-4 mt-1 sm:ml-0">
               <span 
-                className="px-4 py-2 sm:px-4 sm:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 text-xl sm:text-2xl lg:text-xl xl:text-[30px] 2xl:text-[48px] font-black leading-tight"
+                className="px-4 py-2 sm:px-4 sm:py-2 lg:px-4 lg:py-2 xl:px-4 xl:py-2 2xl:px-6 2xl:py-3 text-xl sm:text-2xl lg:text-lg xl:text-[24px] 2xl:text-[48px] font-black leading-tight"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -328,7 +328,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ - Segundo apellido */}
-            <span className="block mt-1 leading-tight text-xl sm:text-2xl lg:text-xl xl:text-[30px] 2xl:text-[48px]">
+            <span className="block mt-1 leading-tight text-xl sm:text-2xl lg:text-lg xl:text-[24px] 2xl:text-[48px]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
           </h1>
@@ -340,7 +340,7 @@ function HeroContent() {
           />
 
           {/* DESCRIPTION - Subtítulo */}
-          <p className="uppercase tracking-[0.2em] mt-4 font-bold text-zinc-400 text-[10px] sm:text-[11px] lg:text-[11px] xl:text-[11px] 2xl:text-[15px]">
+          <p className="uppercase tracking-[0.2em] mt-4 font-bold text-zinc-400 text-[10px] sm:text-[11px] lg:text-[10px] xl:text-[10px] 2xl:text-[15px]">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
@@ -370,7 +370,7 @@ function HeroContent() {
         <div className="px-8 md:px-14 xl:px-24 2xl:px-32 flex items-center justify-between gap-4">
           <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
 
-          <div className="flex items-center gap-3 sm:gap-6">
+          <div className="flex items-center gap-2 sm:gap-4 mr-0">
             <SocialButton href="https://www.linkedin.com/in/tu-usuario">
               <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
             </SocialButton>

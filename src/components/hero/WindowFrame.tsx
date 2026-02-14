@@ -24,9 +24,9 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
   const getSizeByBreakpoint = (width: number) => {
     if (width < 640) return { width: 180, height: 180 };
     if (width < 768) return { width: 250, height: 250 };
-    if (width < 1024) return { width: 380, height: 380 };
-    if (width < 1280) return { width: 450, height: 450 };
-    if (width < 1920) return { width: 550, height: 550 };
+    if (width < 1024) return { width: 300, height: 300 };
+    if (width < 1280) return { width: 400, height: 400 };
+    if (width < 2880) return { width: 450, height: 450 };
     return { width: 600, height: 600 };
   };
 
