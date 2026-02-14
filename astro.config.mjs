@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://Fussed19.github.io',
+  base: '/FussedPortfolio',
+  output: 'static',
   integrations: [react()],
 
   vite: {
