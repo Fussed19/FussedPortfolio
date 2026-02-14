@@ -1,1 +1,32 @@
 @import "tailwindcss";
+
+/* Noise procedural global, suave y cinematográfico */
+.noise-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 2; /* por debajo del contenido, por encima del grid */
+  background-image: url("/noise.svg");
+  opacity: 0.28;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Grid editorial animado, muy sutil */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 1; /* justo sobre el fondo base, debajo del noise */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.08) 3px, transparent 3px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
+  background-size: 80px 80px;
+  animation: grid-drift 30s linear infinite;
+  pointer-events: none;
+}
+
+/* El SVG de warp usará z-index 2 en línea (tailwind: z-[2]) */
+
+@keyframes grid-drift {
+  from { background-position: 0 0; }
+  to { background-position: 200px 200px; }
+}
