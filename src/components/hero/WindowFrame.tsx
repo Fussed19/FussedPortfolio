@@ -22,9 +22,9 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
   const currentColor = MODEL_COLORS[colorKey];
 
   const getSizeByBreakpoint = (width: number) => {
-    if (width < 640) return { width: 300, height: 300 };
-    if (width < 768) return { width: 400, height: 400 };
-    if (width < 1024) return { width: 500, height: 500 };
+    if (width < 640) return { width: 280, height: 280 };
+    if (width < 768) return { width: 350, height: 350 };
+    if (width < 1024) return { width: 480, height: 480 };
     if (width < 1280) return { width: 550, height: 550 };
     return { width: 700, height: 700 };
   };
@@ -182,25 +182,25 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
 
         <button
           onClick={() => onModelChange?.("prev")}
-          className="absolute left-2 top-1/2 -translate-y-1/2"
+          className="absolute left-3 top-1/2 -translate-y-1/2 text-3xl sm:text-4xl hover:scale-110 transition-transform"
           style={{ color: currentColor.accent }}
         >◄</button>
 
         <button
           onClick={() => onModelChange?.("next")}
-          className="absolute right-2 top-1/2 -translate-y-1/2"
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-3xl sm:text-4xl hover:scale-110 transition-transform"
           style={{ color: currentColor.accent }}
         >►</button>
 
         <div
           onMouseDown={handleResizeMouseDown}
-          className="absolute bottom-0 right-0 w-4 h-4 cursor-se-resize flex items-center justify-center"
+          className="absolute bottom-0 right-0 w-6 h-6 cursor-se-resize flex items-center justify-center hover:scale-125 transition-transform"
           style={{ backgroundColor: currentColor.accent }}
           title="Redimensionar"
         >
           <svg
-            width="10"
-            height="10"
+            width="14"
+            height="14"
             viewBox="0 0 10 10"
             fill="none"
             stroke="currentColor"
