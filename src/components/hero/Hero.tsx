@@ -231,7 +231,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
       rel="noopener noreferrer"
       initial={{ rotateX: -90, opacity: 0 }}
       animate={{ rotateX: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: EASE_EXPO }}
+      transition={{ duration: 0.4, ease: EASE_EXPO }}
       whileHover={{
         x: 6,
         y: -6,
@@ -242,7 +242,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
       className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black 
-      px-[clamp(1rem,2vw,2rem)] py-[clamp(0.5rem,1vw,0.9rem)]
+      px-[clamp(1rem,2vw,2rem)] py-[clamp(0.5rem,1vw,1.0rem)]
       text-[clamp(0.65rem,0.9vw,0.9rem)]
       font-black uppercase tracking-[0.2em] 
       shadow-[4px_4px_0_0_#000] transition-all duration-150"
@@ -270,9 +270,9 @@ function SocialButton({ href, children }: SocialButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       animate={{ rotateY: spinCount }}
-      transition={{ duration: 1.5, ease: "linear" }}
+      transition={{ duration: 1.0, ease: "linear" }}
       className="group flex items-center justify-center border-2 
-      p-[clamp(0.4rem,0.8vw,0.9rem)] transition-all duration-300"
+      p-[clamp(0.3rem,0.5vw,1rem)] transition-all duration-300"
 
       style={{ 
         transformStyle: "preserve-3d",
@@ -282,11 +282,11 @@ function SocialButton({ href, children }: SocialButtonProps) {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{
-        scale: 1.1
+        scale: 1.0
       }}
     >
       <svg
-        className="h-[clamp(1rem,1.8vw,1.8rem)] w-[clamp(1rem,1.8vw,1.8rem)] transition-colors duration-300"
+        className="h-[clamp(0.9rem,1.4vw,2.0rem)] w-[clamp(0.9rem,1.4vw,2.0rem)] transition-colors duration-300"
 
         viewBox="0 0 24 24"
         style={{ 
@@ -318,14 +318,14 @@ function HeroContent() {
           <h1 className="font-black tracking-tight leading-[0.9]">
 
             {/* DIEGO */}
-            <span className="block text-[clamp(2.5rem,6vw,6rem)]">
+            <span className="block text-[clamp(3rem,7.2vw,8.5rem)]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA */}
             <span className="block mt-2">
               <span 
-                className="inline-block px-[clamp(0.5rem,1vw,1.5rem)] py-[clamp(0.2rem,0.6vw,0.8rem)] text-[clamp(1.2rem,3.5vw,3.5rem)] font-black"
+                className="inline-block px-[clamp(0.5rem,1vw,1.5rem)] py-[clamp(0.2rem,0.6vw,0.8rem)] text-[clamp(1rem,2.8vw,4.5rem)] font-black"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -337,7 +337,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ */}
-            <span className="block mt-2 text-[clamp(1.2rem,3.5vw,3.5rem)]">
+            <span className="block mt-2 text-[clamp(1rem,2.8.5vw,4.5rem)]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
 
@@ -350,7 +350,7 @@ function HeroContent() {
           />
 
           {/* Subtitle */}
-          <p className="uppercase tracking-[0.25em] font-bold text-zinc-400 text-[clamp(0.6rem,1vw,1rem)] mt-4">
+          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.55rem,0.8vw,1.3rem)] mt-4">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
