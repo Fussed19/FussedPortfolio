@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
-/* Escalar toda la web al 125% para que al 80% de zoom se vea como al 100% original */
-html {
-  zoom: 1.25;
+html, body {
+  scroll-behavior: smooth;
+  height: 100%;
+  overflow: hidden;
 }
 
 /* Grid editorial animado, muy sutil y fluido */

@@ -286,7 +286,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       }}
     >
       <svg
-        className="h-[clamp(0.9rem,1.2vw,2.0rem)] w-[clamp(0.9rem,1.2vw,2.0rem)] transition-colors duration-300"
+        className="h-[clamp(0.9rem,1.5vw,2.3rem)] w-[clamp(0.9rem,1.2vw,2.0rem)] transition-colors duration-300"
 
         viewBox="0 0 24 24"
         style={{ 
@@ -310,12 +310,12 @@ function HeroContent() {
   return (
     <section
       id="top"
-      className="relative min-h-screen overflow-hidden px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 pt-10 pb-20 bg-[#050509] text-zinc-100"
+      className="relative h-screen overflow-hidden px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 pt-10 bg-[#050509] text-zinc-100"
     >
       {/* Main Content */}
       <div className="relative max-w-[1800px] mx-auto flex items-center mt-16 z-10">
         <div className="space-y-6 w-full">
-          <h1 className="font-black tracking-tight leading-[0.9]">
+          <h1 className="font-black tracking-tight leading-none">
 
             {/* DIEGO */}
             <span className="block text-[clamp(3rem,7.5vw,8.5rem)]">
@@ -324,8 +324,11 @@ function HeroContent() {
 
             {/* PALENCIA */}
             <span className="block mt-2">
-              <span 
-                className="inline-block px-[clamp(0.5rem,0.8vw,1.5rem)] py-[clamp(0.2rem,0.5vw,0.8rem)] text-[clamp(1rem,2.8vw,4.5rem)] font-black"
+              <div
+                className="inline-flex items-center px-[clamp(0.5rem,0.8vw,1.5rem)] 
+                          py-[clamp(0.2rem,0.5vw,0.8rem)] 
+                          text-[clamp(1rem,2.8vw,4.5rem)] 
+                          font-black leading-[0.9]"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -333,7 +336,7 @@ function HeroContent() {
                 }}
               >
                 <AnimatedWord text="PALENCIA" wordStartIndex={WORD_POSITIONS.PALENCIA} />
-              </span>
+              </div>
             </span>
 
             {/* MARTINEZ */}
