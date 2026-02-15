@@ -26,8 +26,8 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
     if (width < 768) return { width: 200, height: 200 };
     if (width < 1024) return { width: 280, height: 280 };
     if (width < 1280) return { width: 310, height: 310 };
-    if (width < 2200) return { width: 370, height: 370 };
-    return { width: 500, height: 500 };
+    if (width < 2200) return { width: 450, height: 450 };
+    return { width: 600, height: 600 };
   };
 
   useEffect(() => {
