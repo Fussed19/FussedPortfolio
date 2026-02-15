@@ -239,11 +239,12 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         backgroundColor: "#000",
         borderColor: accentColor,
         color: accentColor,
-        boxShadow: `6px 6px 0px ${accentColor}`
+        boxShadow: `6px 6px 0px ${accentColor}`,
+        transition: { duration: 0.08 }
       }}
       className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black 
-      px-[clamp(1rem,1.6vw,2rem)] py-[clamp(0.4rem,0.7vw,1.0rem)]
-      text-[clamp(0.65rem,0.9vw,0.9rem)]
+      px-[clamp(1.2rem,1.92vw,2.4rem)] py-[clamp(0.48rem,0.84vw,1.2rem)]
+      text-[clamp(0.78rem,1.08vw,1.08rem)]
       font-black uppercase tracking-[0.2em] 
       shadow-[4px_4px_0_0_#000] transition-all duration-150"
 
@@ -272,7 +273,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       animate={{ rotateY: spinCount }}
       transition={{ duration: 1.0, ease: "linear" }}
       className="group flex items-center justify-center border-2 
-      p-[clamp(0.3rem,0.4vw,0.8rem)] transition-all duration-300"
+      p-[clamp(0.36rem,0.48vw,0.96rem)] transition-all duration-300"
 
       style={{ 
         transformStyle: "preserve-3d",
@@ -286,7 +287,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       }}
     >
       <svg
-        className="h-[clamp(0.9rem,1.5vw,2.3rem)] w-[clamp(0.9rem,1.2vw,2.0rem)] transition-colors duration-300"
+        className="h-[clamp(1.08rem,1.8vw,2.76rem)] w-[clamp(1.08rem,1.44vw,2.4rem)] transition-colors duration-300"
 
         viewBox="0 0 24 24"
         style={{ 
@@ -318,16 +319,16 @@ function HeroContent() {
           <h1 className="font-black tracking-tight leading-none">
 
             {/* DIEGO */}
-            <span className="block text-[clamp(3rem,7.5vw,8.5rem)]">
+            <span className="block text-[clamp(3.6rem,9vw,10.2rem)]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA */}
             <span className="block mt-2">
               <div
-                className="inline-flex items-center px-[clamp(0.5rem,0.8vw,1.5rem)] 
-                          py-[clamp(0.2rem,0.5vw,0.8rem)] 
-                          text-[clamp(1rem,2.8vw,4.5rem)] 
+                className="inline-flex items-center px-[clamp(0.6rem,0.96vw,1.8rem)] 
+                          py-[clamp(0.24rem,0.6vw,0.96rem)] 
+                          text-[clamp(1.2rem,3.36vw,5.4rem)] 
                           font-black leading-[0.9]"
                 style={{
                   backgroundColor: accentColor,
@@ -340,7 +341,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ */}
-            <span className="block mt-2 text-[clamp(1rem,2.8vw,4.5rem)]">
+            <span className="block mt-2 text-[clamp(1.2rem,3.36vw,5.4rem)]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
 
@@ -348,12 +349,17 @@ function HeroContent() {
 
           {/* Divider */}
           <div 
-            className="h-[clamp(3px,0.4vw,6px)] w-[clamp(120px,19vw,500px)] mt-6 transition-colors duration-300"
+            className="h-[clamp(3.6px,0.48vw,7.2px)] w-[clamp(144px,22.8vw,600px)] mt-6 transition-colors duration-300"
             style={{ backgroundColor: accentColor }}
           />
 
+          {/* CV Button - Aligned with text */}
+          <div className="mt-8">
+            <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
+          </div>
+
           {/* Subtitle */}
-          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.55rem,0.9vw,1.3rem)] mt-4">
+          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.66rem,1.08vw,1.56rem)] mt-4">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
@@ -361,7 +367,7 @@ function HeroContent() {
 
       {/* 3D Canvas Window */}
       <div
-        className="fixed bottom-[clamp(6rem,10vh,10rem)] right-[clamp(1.5rem,5vw,6rem)] z-40"
+        className="fixed bottom-[clamp(7.2rem,12vh,12rem)] right-[clamp(1.8rem,6vw,7.2rem)] z-40"
         style={{ willChange: "transform" }}
       >
         <motion.div
@@ -381,9 +387,7 @@ function HeroContent() {
         className="fixed left-0 right-0 bottom-0 pt-10 pb-10 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
       >
         <div className="px-4 sm:px-8 lg:px-12 xl:px-20 2xl:px-25 flex items-center justify-between gap-6">
-          <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
-
-          <div className="flex items-center gap-[clamp(0.5rem,2vw,2rem)]">
+          <div className="flex items-center gap-[clamp(0.6rem,2.4vw,2.4rem)]">
             <SocialButton href="https://www.linkedin.com/in/tu-usuario">
               <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
             </SocialButton>
