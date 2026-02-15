@@ -319,16 +319,16 @@ function HeroContent() {
           <h1 className="font-black tracking-tight leading-none">
 
             {/* DIEGO */}
-            <span className="block text-[clamp(3.6rem,9vw,14rem)]">
+            <span className="block text-[clamp(3.6rem,9vw,20rem)]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA */}
             <span className="block mt-2">
               <div
-                className="inline-flex items-center px-[clamp(0.6rem,0.96vw,2.2rem)] 
-                          py-[clamp(0.24rem,0.6vw,1.2rem)] 
-                          text-[clamp(1.2rem,3.36vw,8rem)] 
+                className="inline-flex items-center px-[clamp(0.6rem,0.96vw,3rem)] 
+                          py-[clamp(0.24rem,0.6vw,1.5rem)] 
+                          text-[clamp(1.2rem,3.36vw,11rem)] 
                           font-black leading-[0.9]"
                 style={{
                   backgroundColor: accentColor,
@@ -341,7 +341,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ */}
-            <span className="block mt-2 text-[clamp(1.2rem,3.36vw,8rem)]">
+            <span className="block mt-2 text-[clamp(1.2rem,3.36vw,11rem)]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
 
@@ -349,12 +349,12 @@ function HeroContent() {
 
           {/* Divider */}
           <div 
-            className="h-[clamp(3.6px,0.48vw,8px)] w-[clamp(144px,22.8vw,850px)] mt-6 transition-colors duration-300"
+            className="h-[clamp(3.6px,0.48vw,10px)] w-[clamp(144px,22.8vw,1100px)] mt-6 transition-colors duration-300"
             style={{ backgroundColor: accentColor }}
           />
 
           {/* Subtitle */}
-          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.66rem,1.08vw,2.1rem)] mt-4">
+          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.66rem,1.08vw,2.8rem)] mt-4">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>

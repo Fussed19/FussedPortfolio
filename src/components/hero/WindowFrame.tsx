@@ -27,7 +27,8 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
     if (width < 1024) return { width: 280, height: 280 };
     if (width < 1280) return { width: 350, height: 350 };
     if (width < 1920) return { width: 480, height: 480 };
-    return { width: 600, height: 600 };
+    if (width < 2560) return { width: 650, height: 650 };
+    return { width: 850, height: 850 };
   };
 
   useEffect(() => {
@@ -40,7 +41,7 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
       setSize(getSizeByBreakpoint(vw));
 
       const randomX = vw * 0.12 + (Math.random() + (70-35));
-      const randomY = vh * 0.3;
+      const randomY = vh * 0.4;
 
       setPosition({ x: -randomX, y: -randomY });
     };
