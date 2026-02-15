@@ -242,7 +242,7 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
       className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black 
-      px-[clamp(1rem,2vw,2rem)] py-[clamp(0.5rem,1vw,1.0rem)]
+      px-[clamp(1rem,1.6vw,2rem)] py-[clamp(0.4rem,0.7vw,1.0rem)]
       text-[clamp(0.65rem,0.9vw,0.9rem)]
       font-black uppercase tracking-[0.2em] 
       shadow-[4px_4px_0_0_#000] transition-all duration-150"
@@ -318,14 +318,14 @@ function HeroContent() {
           <h1 className="font-black tracking-tight leading-[0.9]">
 
             {/* DIEGO */}
-            <span className="block text-[clamp(3rem,7.2vw,8.5rem)]">
+            <span className="block text-[clamp(3rem,7.5vw,8.5rem)]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA */}
             <span className="block mt-2">
               <span 
-                className="inline-block px-[clamp(0.5rem,1vw,1.5rem)] py-[clamp(0.2rem,0.6vw,0.8rem)] text-[clamp(1rem,2.8vw,4.5rem)] font-black"
+                className="inline-block px-[clamp(0.5rem,0.8vw,1.5rem)] py-[clamp(0.2rem,0.5vw,0.8rem)] text-[clamp(1rem,2.8vw,4.5rem)] font-black"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -345,7 +345,7 @@ function HeroContent() {
 
           {/* Divider */}
           <div 
-            className="h-[clamp(3px,0.4vw,6px)] w-[clamp(120px,25vw,500px)] mt-6 transition-colors duration-300"
+            className="h-[clamp(3px,0.4vw,6px)] w-[clamp(120px,19vw,500px)] mt-6 transition-colors duration-300"
             style={{ backgroundColor: accentColor }}
           />
 
@@ -375,9 +375,9 @@ function HeroContent() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6, ease: EASE_EXPO }}
-        className="fixed left-0 right-0 bottom-0 pt-10 pb-10 z-50 bg-gradient-to-t from-[#050509] via-[#050509]/80 to-transparent"
+        className="fixed left-0 right-0 bottom-0 pt-10 pb-10 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
       >
-        <div className="px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 flex items-center justify-between gap-6">
+        <div className="px-4 sm:px-8 lg:px-12 xl:px-20 2xl:px-25 flex items-center justify-between gap-6">
           <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
 
           <div className="flex items-center gap-[clamp(0.5rem,2vw,2rem)]">
