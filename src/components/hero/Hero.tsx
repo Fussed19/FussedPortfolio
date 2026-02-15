@@ -241,7 +241,12 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         color: accentColor,
         boxShadow: `6px 6px 0px ${accentColor}`
       }}
-      className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black px-5 py-2 md:px-8 md:py-3 lg:px-8 lg:py-3 text-[10px] md:text-xs lg:text-xs font-black uppercase tracking-[0.2em] shadow-[4px_4px_0_0_#000] transition-all duration-50"
+      className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black 
+      px-[clamp(1rem,2vw,2rem)] py-[clamp(0.5rem,1vw,0.9rem)]
+      text-[clamp(0.65rem,0.9vw,0.9rem)]
+      font-black uppercase tracking-[0.2em] 
+      shadow-[4px_4px_0_0_#000] transition-all duration-150"
+
       style={{ transformStyle: "preserve-3d" }}
     >
       {children}
@@ -266,7 +271,9 @@ function SocialButton({ href, children }: SocialButtonProps) {
       rel="noopener noreferrer"
       animate={{ rotateY: spinCount }}
       transition={{ duration: 1.5, ease: "linear" }}
-      className="group flex items-center justify-center border-2 p-1 md:p-2 lg:p-3 transition-all duration-300"
+      className="group flex items-center justify-center border-2 
+      p-[clamp(0.4rem,0.8vw,0.9rem)] transition-all duration-300"
+
       style={{ 
         transformStyle: "preserve-3d",
         borderColor: accentColor,
@@ -279,7 +286,8 @@ function SocialButton({ href, children }: SocialButtonProps) {
       }}
     >
       <svg
-        className="h-4 w-4 md:h-6 md:w-6 lg:h-8 lg:w-8 transition-colors duration-300"
+        className="h-[clamp(1rem,1.8vw,1.8rem)] w-[clamp(1rem,1.8vw,1.8rem)] transition-colors duration-300"
+
         viewBox="0 0 24 24"
         style={{ 
           transformStyle: "preserve-3d", 
@@ -302,21 +310,22 @@ function HeroContent() {
   return (
     <section
       id="top"
-      className="relative min-h-screen overflow-hidden px-8 md:px-14 xl:px-24 2xl:px-32 pt-8 lg:pt-10 pb-16 bg-[#050509] text-zinc-100"
+      className="relative min-h-screen overflow-hidden px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 pt-10 pb-20 bg-[#050509] text-zinc-100"
     >
       {/* Main Content */}
-      <div className="relative max-w-7xl xl:max-w-400 2xl:max-w-440 mx-auto flex items-center mt-10 sm:mt-10 lg:mt-12 xl:mt-15 z-10 pl-0 ml-0">
-        <div className="space-y-4 w-full pl-0">
-          <h1 className="font-black tracking-tight pl-0">
-            {/* DIEGO - Primer nombre */}
-            <span className="block leading-tight text-3xl sm:text-4xl lg:text-4xl xl:text-[64px] 2xl:text-[140px]">
+      <div className="relative max-w-[1800px] mx-auto flex items-center mt-16 z-10">
+        <div className="space-y-6 w-full">
+          <h1 className="font-black tracking-tight leading-[0.9]">
+
+            {/* DIEGO */}
+            <span className="block text-[clamp(2.5rem,6vw,6rem)]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
-            {/* PALENCIA - En caja de color */}
-            <span className="block sm:inline-flex items-center gap-3 mt-0 sm:ml-0">
+            {/* PALENCIA */}
+            <span className="block mt-2">
               <span 
-                className="px-2 py-1 sm:px-3 sm:py-1 lg:px-3 lg:py-1 xl:px-3 xl:py-1 2xl:px-6 2xl:py-3 text-base sm:text-xl lg:text-sm xl:text-[18px] 2xl:text-[48px] font-black leading-tight"
+                className="inline-block px-[clamp(0.5rem,1vw,1.5rem)] py-[clamp(0.2rem,0.6vw,0.8rem)] text-[clamp(1.2rem,3.5vw,3.5rem)] font-black"
                 style={{
                   backgroundColor: accentColor,
                   color: "#050509",
@@ -327,28 +336,29 @@ function HeroContent() {
               </span>
             </span>
 
-            {/* MARTINEZ - Segundo apellido */}
-            <span className="block mt-0 leading-tight text-base sm:text-xl lg:text-sm xl:text-[18px] 2xl:text-[48px]">
+            {/* MARTINEZ */}
+            <span className="block mt-2 text-[clamp(1.2rem,3.5vw,3.5rem)]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
+
           </h1>
 
-          {/* DIVIDER - Línea horizontal */}
+          {/* Divider */}
           <div 
-            className="h-1 mt-3 w-50 sm:w-70 lg:w-60 xl:w-100 2xl:w-125 transition-colors duration-300"
+            className="h-[clamp(3px,0.4vw,6px)] w-[clamp(120px,25vw,500px)] mt-6 transition-colors duration-300"
             style={{ backgroundColor: accentColor }}
           />
 
-          {/* DESCRIPTION - Subtítulo */}
-          <p className="uppercase tracking-[0.2em] mt-2 font-bold text-zinc-400 text-[8px] sm:text-[10px] lg:text-[9px] xl:text-[9px] 2xl:text-[15px]">
+          {/* Subtitle */}
+          <p className="uppercase tracking-[0.25em] font-bold text-zinc-400 text-[clamp(0.6rem,1vw,1rem)] mt-4">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
       </div>
 
-      {/* 3D Canvas Window - Positioned con transform para drag suave */}
+      {/* 3D Canvas Window */}
       <div
-        className="fixed bottom-40 right-8 md:right-14 xl:right-24 2xl:right-32 z-40"
+        className="fixed bottom-[clamp(6rem,10vh,10rem)] right-[clamp(1.5rem,5vw,6rem)] z-40"
         style={{ willChange: "transform" }}
       >
         <motion.div
@@ -365,12 +375,12 @@ function HeroContent() {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3, duration: 0.6, ease: EASE_EXPO }}
-        className="fixed left-0 right-0 bottom-0 pt-8 pb-8 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
+        className="fixed left-0 right-0 bottom-0 pt-10 pb-10 z-50 bg-gradient-to-t from-[#050509] via-[#050509]/80 to-transparent"
       >
-        <div className="px-8 md:px-14 xl:px-24 2xl:px-32 flex items-center justify-between gap-4">
+        <div className="px-6 sm:px-10 lg:px-16 xl:px-24 2xl:px-32 flex items-center justify-between gap-6">
           <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
 
-          <div className="flex items-center gap-2 sm:gap-4 mr-0">
+          <div className="flex items-center gap-[clamp(0.5rem,2vw,2rem)]">
             <SocialButton href="https://www.linkedin.com/in/tu-usuario">
               <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
             </SocialButton>
@@ -384,6 +394,8 @@ function HeroContent() {
     </section>
   );
 }
+
+
 
 export default function Hero() {
   return (
