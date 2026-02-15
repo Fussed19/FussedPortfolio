@@ -243,8 +243,8 @@ function AnimatedButton({ children, href }: AnimatedButtonProps) {
         transition: { duration: 0.08 }
       }}
       className="inline-flex items-center justify-center gap-2 border-2 border-zinc-100 bg-zinc-100 text-black 
-      px-[clamp(1.2rem,1.92vw,2.4rem)] py-[clamp(0.48rem,0.84vw,1.2rem)]
-      text-[clamp(0.78rem,1.08vw,1.08rem)]
+      px-[clamp(1.2rem,1.92vw,3rem)] py-[clamp(0.48rem,0.84vw,1.5rem)]
+      text-[clamp(0.78rem,1.08vw,1.3rem)]
       font-black uppercase tracking-[0.2em] 
       shadow-[4px_4px_0_0_#000] transition-all duration-150"
 
@@ -273,7 +273,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       animate={{ rotateY: spinCount }}
       transition={{ duration: 1.0, ease: "linear" }}
       className="group flex items-center justify-center border-2 
-      p-[clamp(0.36rem,0.48vw,0.96rem)] transition-all duration-300"
+      p-[clamp(0.48rem,0.6vw,1.2rem)] transition-all duration-300"
 
       style={{ 
         transformStyle: "preserve-3d",
@@ -287,7 +287,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       }}
     >
       <svg
-        className="h-[clamp(1.08rem,1.8vw,2.76rem)] w-[clamp(1.08rem,1.44vw,2.4rem)] transition-colors duration-300"
+        className="h-[clamp(1.3rem,2.2vw,3.5rem)] w-[clamp(1.3rem,1.8vw,3rem)] transition-colors duration-300"
 
         viewBox="0 0 24 24"
         style={{ 
@@ -319,16 +319,16 @@ function HeroContent() {
           <h1 className="font-black tracking-tight leading-none">
 
             {/* DIEGO */}
-            <span className="block text-[clamp(3.6rem,9vw,12rem)]">
+            <span className="block text-[clamp(3.6rem,9vw,14rem)]">
               <AnimatedWord text="DIEGO" wordStartIndex={WORD_POSITIONS.DIEGO} />
             </span>
 
             {/* PALENCIA */}
             <span className="block mt-2">
               <div
-                className="inline-flex items-center px-[clamp(0.6rem,0.96vw,1.8rem)] 
-                          py-[clamp(0.24rem,0.6vw,0.96rem)] 
-                          text-[clamp(1.2rem,3.36vw,6.5rem)] 
+                className="inline-flex items-center px-[clamp(0.6rem,0.96vw,2.2rem)] 
+                          py-[clamp(0.24rem,0.6vw,1.2rem)] 
+                          text-[clamp(1.2rem,3.36vw,8rem)] 
                           font-black leading-[0.9]"
                 style={{
                   backgroundColor: accentColor,
@@ -341,7 +341,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ */}
-            <span className="block mt-2 text-[clamp(1.2rem,3.36vw,6.5rem)]">
+            <span className="block mt-2 text-[clamp(1.2rem,3.36vw,8rem)]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
 
@@ -349,12 +349,12 @@ function HeroContent() {
 
           {/* Divider */}
           <div 
-            className="h-[clamp(3.6px,0.48vw,7.2px)] w-[clamp(144px,22.8vw,700px)] mt-6 transition-colors duration-300"
+            className="h-[clamp(3.6px,0.48vw,8px)] w-[clamp(144px,22.8vw,850px)] mt-6 transition-colors duration-300"
             style={{ backgroundColor: accentColor }}
           />
 
           {/* Subtitle */}
-          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.66rem,1.08vw,1.8rem)] mt-4">
+          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.66rem,1.08vw,2.1rem)] mt-4">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>
@@ -382,7 +382,9 @@ function HeroContent() {
         className="fixed left-0 right-0 bottom-0 pt-10 pb-10 z-50 bg-linear-to-t from-[#050509] via-[#050509]/80 to-transparent"
       >
         <div className="px-4 sm:px-8 lg:px-12 xl:px-20 2xl:px-25 flex items-center justify-between gap-6">
-          <div className="flex items-center gap-[clamp(0.6rem,2.4vw,2.4rem)]">
+          <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
+
+          <div className="flex items-center gap-[clamp(0.8rem,3vw,3rem)]">
             <SocialButton href="https://www.linkedin.com/in/tu-usuario">
               <path d="M4.98 3.5C4.98 4.88 3.9 6 2.5 6 1.12 6 0 4.88 0 3.5 0 2.12 1.12 1 2.5 1 3.9 1 4.98 2.12 4.98 3.5zM.24 8.25H4.76V24H.24V8.25zM8.44 8.25H12.8V10.1H12.86C13.47 8.95 14.88 7.76 17.02 7.76 21.5 7.76 22.25 10.71 22.25 14.36V24H17.72V15.39C17.72 13.53 17.68 11.18 15.21 11.18 12.7 11.18 12.33 13.17 12.33 15.25V24H7.8V8.25H8.44Z" />
             </SocialButton>
@@ -390,9 +392,6 @@ function HeroContent() {
             <SocialButton href="https://github.com/Fussed19">
               <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.82-.26.82-.58 0-.29-.01-1.04-.02-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.78-1.34-1.78-1.09-.75.08-.74.08-.74 1.2.08 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 3-.4c1.02 0 2.05.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.62-2.8 5.65-5.48 5.95.43.37.81 1.1.81 2.22 0 1.6-.02 2.88-.02 3.27 0 .32.21.7.83.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12z" />
             </SocialButton>
-          </div>
-          <div>
-            <AnimatedButton href="/cv.pdf">Descargar CV</AnimatedButton>
           </div>
         </div>
       </motion.div>
