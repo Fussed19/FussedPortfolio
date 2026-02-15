@@ -272,7 +272,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       animate={{ rotateY: spinCount }}
       transition={{ duration: 1.0, ease: "linear" }}
       className="group flex items-center justify-center border-2 
-      p-[clamp(0.3rem,0.5vw,1rem)] transition-all duration-300"
+      p-[clamp(0.3rem,0.4vw,0.8rem)] transition-all duration-300"
 
       style={{ 
         transformStyle: "preserve-3d",
@@ -286,7 +286,7 @@ function SocialButton({ href, children }: SocialButtonProps) {
       }}
     >
       <svg
-        className="h-[clamp(0.9rem,1.4vw,2.0rem)] w-[clamp(0.9rem,1.4vw,2.0rem)] transition-colors duration-300"
+        className="h-[clamp(0.9rem,1.2vw,2.0rem)] w-[clamp(0.9rem,1.2vw,2.0rem)] transition-colors duration-300"
 
         viewBox="0 0 24 24"
         style={{ 
@@ -337,7 +337,7 @@ function HeroContent() {
             </span>
 
             {/* MARTINEZ */}
-            <span className="block mt-2 text-[clamp(1rem,2.8.5vw,4.5rem)]">
+            <span className="block mt-2 text-[clamp(1rem,2.8vw,4.5rem)]">
               <AnimatedWord text="MARTINEZ" wordStartIndex={WORD_POSITIONS.MARTINEZ} />
             </span>
 
@@ -350,7 +350,7 @@ function HeroContent() {
           />
 
           {/* Subtitle */}
-          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.55rem,0.8vw,1.3rem)] mt-4">
+          <p className="uppercase tracking-[0.15em] font-bold text-zinc-400 text-[clamp(0.55rem,0.9vw,1.3rem)] mt-4">
             Estudiante de Diseño y Desarrollo de Videojuegos
           </p>
         </div>

@@ -25,8 +25,8 @@ export default function WindowFrame({ children, onModelChange, modelIndex }: Win
     if (width < 640) return { width: 140, height: 140 };
     if (width < 768) return { width: 200, height: 200 };
     if (width < 1024) return { width: 280, height: 280 };
-    if (width < 1280) return { width: 350, height: 350 };
-    if (width < 2880) return { width: 400, height: 400 };
+    if (width < 1280) return { width: 310, height: 310 };
+    if (width < 2880) return { width: 370, height: 370 };
     return { width: 500, height: 500 };
   };
 
